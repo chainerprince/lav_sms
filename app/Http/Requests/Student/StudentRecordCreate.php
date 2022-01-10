@@ -30,13 +30,12 @@ class StudentRecordCreate extends FormRequest
             'photo' => 'sometimes|nullable|image|mimes:jpeg,gif,png,jpg|max:2048',
             'address' => 'required|string|min:6|max:120',
             'bg_id' => 'sometimes|nullable',
-            'state_id' => 'required',
-            'lga_id' => 'required',
+            
             'nal_id' => 'required',
             'my_class_id' => 'required',
             'section_id' => 'required',
             'my_parent_id' => 'sometimes|nullable',
-            'dorm_id' => 'sometimes|nullable',
+            
         ];
     }
 
@@ -46,7 +45,7 @@ class StudentRecordCreate extends FormRequest
             'section_id' => 'Section',
             'nal_id' => 'Nationality',
             'my_class_id' => 'Class',
-            'dorm_id' => 'Dormitory',
+            
             'state_id' => 'State',
             'lga_id' => 'LGA',
             'bg_id' => 'Blood Group',

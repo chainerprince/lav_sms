@@ -145,9 +145,7 @@
                     </li>
 
                     {{--Manage Dorms--}}
-                    <li class="nav-item">
-                        <a href="{{ route('dorms.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['dorms.index','dorms.edit']) ? 'active' : '' }}"><i class="icon-home9"></i> <span> Dormitories</span></a>
-                    </li>
+                    
 
                     {{--Manage Sections--}}
                     <li class="nav-item">

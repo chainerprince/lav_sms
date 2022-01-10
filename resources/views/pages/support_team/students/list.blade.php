@@ -36,6 +36,7 @@
                         </tr>
                         </thead>
                         <tbody>
+                            
                         @foreach($students as $s)
                             <tr>
                                 <td>{{ $loop->iteration }}</td>

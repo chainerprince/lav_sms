@@ -85,38 +85,7 @@
                             </div>
                         </div>
 
-                        <div class="col-md-3">
-                            <label for="state_id">State: <span class="text-danger">*</span></label>
-                            <select onchange="getLGA(this.value)" required data-placeholder="Choose.." class="select-search form-control" name="state_id" id="state_id">
-                                <option value=""></option>
-                                @foreach($states as $st)
-                                    <option {{ ($sr->user->state_id  == $st->id ? 'selected' : '') }} value="{{ $st->id }}">{{ $st->name }}</option>
-                                @endforeach
-                            </select>
-                        </div>
-
-                        <div class="col-md-3">
-                            <label for="lga_id">LGA: <span class="text-danger">*</span></label>
-                            <select required data-placeholder="Select State First" class="select-search form-control" name="lga_id" id="lga_id">
-                                @if($sr->user->lga_id)
-                                    <option selected value="{{ $sr->user->lga_id }}">{{ $sr->user->lga->name}}</option>
-                                @endif
-                            </select>
-                        </div>
-
-                    </div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label for="bg_id">Blood Group: </label>
-                                <select class="select form-control" id="bg_id" name="bg_id" data-fouc data-placeholder="Choose..">
-                                    <option value=""></option>
-                                    @foreach(App\Models\BloodGroup::all() as $bg)
-                                        <option {{ ($sr->user->bg_id  == $bg->id ? 'selected' : '') }} value="{{ $bg->id }}">{{ $bg->name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
+                        
 
                         <div class="col-md-6">
                             <div class="form-group">
@@ -125,7 +94,9 @@
                                 <span class="form-text text-muted">Accepted Images: jpeg, png. Max file size 2Mb</span>
                             </div>
                         </div>
+
                     </div>
+                    
 
                 </fieldset>
 
@@ -178,25 +149,7 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-6">
-                            <label for="dorm_id">Dormitory: </label>
-                            <select data-placeholder="Choose..."  name="dorm_id" id="dorm_id" class="select-search form-control">
-                                <option value=""></option>
-                                @foreach($dorms as $d)
-                                    <option {{ ($sr->dorm_id == $d->id) ? 'selected' : '' }} value="{{ $d->id }}">{{ $d->name }}</option>
-                                @endforeach
-                            </select>
-
-                        </div>
-
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <label>Dormitory Room No:</label>
-                                <input type="text" name="dorm_room_no" placeholder="Dormitory Room No" class="form-control" value="{{ $sr->dorm_room_no }}">
-                            </div>
-                        </div>
-                    </div>
+                    
                 </fieldset>
 
             </form>

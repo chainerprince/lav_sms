@@ -27,8 +27,10 @@
                         <th>Balance</th>
                         <th>Pay Now</th>
                         <th>Receipt_No</th>
+                        <th>Term</th>
                         <th>Year</th>
                         <th>Action</th>
+
                     </tr>
                     </thead>
                     <tbody>
@@ -63,7 +65,7 @@
                             </td>
                             {{--Receipt No--}}
                             <td>{{ $uc->ref_no }}</td>
-
+                            <td>{{3}}</td>
                             <td>{{ $uc->year }}</td>
 
                             {{--Action--}}

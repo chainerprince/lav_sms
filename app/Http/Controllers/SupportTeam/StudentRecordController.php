@@ -43,7 +43,7 @@ class StudentRecordController extends Controller
     {
         $data['my_classes'] = $this->my_class->all();
         $data['parents'] = $this->user->getUserByType('parent');
-        $data['dorms'] = $this->student->getAllDorms();
+        
         $data['states'] = $this->loc->getStates();
         $data['nationals'] = $this->loc->getAllNationals();
         return view('pages.support_team.students.add', $data);
@@ -71,7 +71,7 @@ class StudentRecordController extends Controller
             $f = Qs::getFileMetaData($photo);
             $f['name'] = 'photo.' . $f['ext'];
             $f['path'] = $photo->storeAs(Qs::getUploadPath('student').$data['code'], $f['name']);
-            $data['photo'] = asset('storage/' . $f['path']);
+            $data['photo'] = asset('global_assets/' . $f['path']);
         }
 
         $user = $this->user->create($data); // Create User
@@ -134,8 +134,8 @@ class StudentRecordController extends Controller
         $data['sr'] = $this->student->getRecord(['id' => $sr_id])->first();
         $data['my_classes'] = $this->my_class->all();
         $data['parents'] = $this->user->getUserByType('parent');
-        $data['dorms'] = $this->student->getAllDorms();
-        $data['states'] = $this->loc->getStates();
+        
+        // $data['states'] = $this->loc->getStates();
         $data['nationals'] = $this->loc->getAllNationals();
         return view('pages.support_team.students.edit', $data);
     }
@@ -152,9 +152,9 @@ class StudentRecordController extends Controller
         if($req->hasFile('photo')) {
             $photo = $req->file('photo');
             $f = Qs::getFileMetaData($photo);
-            $f['name'] = 'photo.' . $f['ext'];
-            $f['path'] = $photo->storeAs(Qs::getUploadPath('student').$sr->user->code, $f['name']);
-            $d['photo'] = asset('storage/' . $f['path']);
+            $f['name'] = $sr->user->code.'photo.' . $f['ext'];
+            $f['path'] = $photo->storeAs(Qs::getUploadPath('student'), $f['name']);
+            $d['photo'] = asset('global_assets/' . $f['path']);
         }
 
         $this->user->update($sr->user->id, $d); // Update User Details
